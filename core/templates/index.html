@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <title>Index</title>
+</head>
+
+<body>
+    <center>
+
+        <h1>Index</h1>
+
+        <img src="{% static 'img/django.png' %}" alt="django-framework">
+
+        <h2>{{ curso }}</h2>
+        <h3>{{ outro }}</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Produtos</th>
+                    <th>Preço</th>
+                </tr>
+            <tbody>
+                {% for produto in produtos %}
+                <tr>
+                    <td><a href="{% url 'produto' produto.id %}">{{ produto.nome }}</a></td>
+                    <td>{{ produto.preco }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </thead>
+        </table>
+        <button onclick="teste();">Clique-me</button>
+
+    </center>
+
+    <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
